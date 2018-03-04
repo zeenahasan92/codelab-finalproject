@@ -1,0 +1,312 @@
+<!doctype html>
+
+<html lang="en" class="h-100">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome link CSS-->
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
+
+    <!-- GOOGLE FONT -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500|Source+Sans+Pro:200i,300,300i"
+          rel="stylesheet">
+
+    <!-- LOGO -->
+    <link rel="icon" type="images/png" href="/images/minilogo.png">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="/stylesheets/sheet2.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Admin page</title>
+</head>
+
+<header id="HOME">
+
+    <!-- NAVBAR -->
+    <div class="container">
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 fixed-top nav-section">
+            <img src="/images/vfff.png" class="my-0 mr-md-auto font-weight-normal logo-style"/>
+            <nav class="my-2 my-md-0 mr-md-3 navbar-style">
+                <a class="p-2 nav-item" href="http://localhost:3000/home">Home</a>
+                <a class="p-2 nav-item active" href="#">Add Books</a>
+
+            </nav>
+
+        </div>
+    </div>
+</header>
+
+
+<div class="container heee " id="root">
+    <section class="jumbotron  bgcolor text-center ">
+        <div class="container mt-5 justify-content-center">
+            <section class="jumbotron-heading">
+
+
+                <h1 class="display-4 text-center "> {{headOne}} </h1>
+                <p class="lead">{{p}} </p>
+                <button class="btn btn-success btn-style" @click="openAddModal"> Add New Book <i
+                            class="far fa-plus-square"></i></button>
+            </section>
+        </div>
+
+    </section>
+
+
+    <!-- Add of Modal -->
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-style">
+                <div class="modal-header ">
+                    <h5 class="modal-title" id="exampleModalLabel">Add New Book</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="text-white">Book Name</label>
+                            <input v-model="newBook.bookName" type="text" placeholder="type in name"
+                                   class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-white">ISBN Number</label>
+                            <input v-model="newBook.isbnNo" type="text" placeholder="type in ISBN Number"
+                                   class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-white">Author Name</label>
+                            <input v-model="newBook.authorName" type="text" placeholder="type in Author Name"
+                                   class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-white">Publish Year</label>
+                            <input v-model="newBook.publishYear" type="text" placeholder="type in Publish Year"
+                                   class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-white">Image</label>
+                            <input v-model="newBook.image" type="text" placeholder="type in Image Link"
+                                   class="form-control">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger nice-btn" data-dismiss="modal">Close</button>
+                    <button @click="addBook" type="button" class="btn btn-primary nice-btn">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end of Add of Modal-->
+
+    <!-- Edit of Modal-->
+    <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-style">
+                <div class="modal-header ">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit Book</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label class="text-white">Book Name</label>
+                            <input v-model="editingBook.bookName" type="text" placeholder="type in Book Name"
+                                   class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-white">ISBN Number</label>
+                            <input v-model="editingBook.isbnNo" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-white">Author Name</label>
+                            <input v-model="editingBook.authorName" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-white">Publish Year</label>
+                            <input v-model="editingBook.publishYear" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-white">Image</label>
+                            <input v-model="editingBook.image" type="text" class="form-control">
+                        </div>
+
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger nice-btn" data-dismiss="modal">Close</button>
+                    <button @click="saveEditing" type="button" class="btn btn-primary nice-btn">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--end of edit of Modal-->
+
+    <div class="row justify-content-center  align-items-center ">
+        <div class="col-md-12">
+            <div class="row justify-content-center  align-items-center ">
+                <div class="col-md-11 nb">
+
+                    <table class="table tableStyle table-hover  box-shadow " align="center">
+                        <thead class="table-head">
+                        <tr class="text-center">
+                            <th>NO</th>
+                            <th>Book Name</th>
+                            <th>ISBN Number</th>
+                            <th>Author Name</th>
+                            <th>Publish Year</th>
+                            <th>Edit</th>
+                            <th>Delete</th>
+
+
+                        </tr>
+                        </thead>
+                        <tbody class="table-color">
+
+                        <tr v-for="(book,index) in books" class=" text-center ">
+                            <td>{{index+1}}</td>
+                            <td>{{book.bookName}}</td>
+                            <td>{{book.isbnNo}}</td>
+                            <td>{{book.authorName}}</td>
+                            <td>{{book.publishYear}}</td>
+
+                            <td>
+                                <button @click="openEditModal(book)" class="btn btn-primary nice-btn btn-sm  px-3"><i
+                                            class="far fa-edit"></i></button>
+                            </td>
+                            <td>
+                                <button @click="removeBook(book._id)" class="btn btn-danger nice-btn  btn-sm px-4 "><i
+                                            class="far fa-trash-alt"></i></button>
+                            </td>
+
+                        </tr>
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <!--FOOTER-->
+
+</div>
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.13/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+    function getBook() {
+        axios.get('/api/books').then(function (response) {
+            app.books = response.data;
+        });
+    }
+
+    var app = new Vue({
+
+        el: '#root',
+        data: {
+            headOne: "Welcome to CRUD System Controller",
+            p: "Do CRUD Operations Here!",
+            books: [],
+            newBook: {
+                bookName: "",
+                isbnNo: "",
+                authorName: "",
+                publishYear: "",
+                image: ""
+
+            },
+            editingBook: {
+                bookName: "",
+                isbnNo: "",
+                authorName: "",
+                publishYear: "",
+                image: ""
+
+
+            }
+
+        },
+        methods: {
+            openAddModal: function () {
+                $('#addModal').modal('show')
+            },
+            openEditModal: function (book) {
+                this.editingBook = book
+                $('#editModal').modal('show')
+            },
+
+            addBook: function () {
+                if (this.newBook.isbnNo == "") {
+                    alert("Please Full The Form");
+                } else {
+                    axios.post('/api/books', {book: app.newBook}).then(function (response) {
+                        console.log(response.data.message)
+                        if (response.data.isSuccess) {
+                            getBook()
+
+                            $('#addModal').modal('hide')
+                        }
+
+                    }).catch(function (error) {
+                        console.log("error")
+
+                    });
+                }
+            },
+            saveEditing: function () {
+                axios.put('/api/books', {book: this.editingBook}).then(function (response) {
+                    if (response.data.isSuccess) {
+                        $('#editModal').modal('hide');
+                        getBook();
+                    }
+
+                })
+            },
+            removeBook: function (id) {
+                axios.delete('/api/books', {params: {id: id}}).then(function (response) {
+                    alert("This action is going to delete the item from database, are you sure to delete it?");
+                    if (response.data.isSuccess) {
+                        getBook()
+                    }
+                })
+            }
+
+        },
+        mounted: function () {
+            getBook()
+        }
+
+
+    });
+
+
+</script>
+
+</body>
+</html>

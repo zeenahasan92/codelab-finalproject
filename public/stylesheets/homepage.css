@@ -1,0 +1,331 @@
+.nice-shadow {
+    box-shadow: 0px 0px 20px 3px rgba(0, 0, 0, 0.4);
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+/* =======header section=========*/
+.btn-login {
+    font-family: 'Raleway', sans-serif;
+    border-color: darkcyan;
+    transition: all 0.5s !important;
+}
+
+.btn-login:hover {
+    color: white !important;
+    background: darkcyan;
+    border-color: darkcyan;
+}
+
+.nav-styles {
+    z-index: 110;
+    transition: all 1s;
+
+}
+
+.navbar-style a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+.nav-link {
+    padding: 2.5px;
+}
+
+.navbar-style a:hover {
+    color: darkcyan;
+}
+
+.navbar-style a:focus {
+    color: #B5B5B5;
+}
+
+.logo-style {
+    color: darkcyan;
+    font-family: 'Raleway', sans-serif;
+    transition: all 1s;
+    -webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+}
+
+.logo-style:hover {
+    color: #62C5F6;
+}
+
+.bghead {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-image: url("../images/iPad-screen-showing-the-new-wesite-for-the-Leeds-Library.jpg");
+    width: 100%;
+    height: 800px;
+    position: relative;
+    display: flex;
+    background-size: cover;
+    background-position: 50% 50%;
+    -webkit-background-size: cover;
+}
+
+.dropdown-style {
+    display: inline;
+}
+
+.header-overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6);
+
+}
+
+.bgcolor {
+    background-color: transparent;
+    margin-top: 70px;
+}
+
+.bgtext {
+    color: white;
+    font-size: 35px;
+    font-weight: 300;
+    line-height: 45px;
+    text-transform: uppercase;
+
+}
+
+.bgtext1 {
+    color: white;
+    font-size: 25px;
+}
+
+.bg-button {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.btn-taketour,
+.btn-taketour:focus,
+.btn-taketour:visited,
+.btn-taketour:active {
+
+    color: white;
+    background: transparent;
+    border-color: darkcyan;
+    padding: 10px 30px 10px 30px;
+    font-size: 19px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    tansition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    -moz-tansition: all 0.5s;
+    -o-tansition: all 0.5s;
+
+}
+
+.btn-taketour:hover {
+    background-color: darkcyan;
+    color: #ffffff;
+}
+
+.btn-taketour i {
+    font-size: 19px;
+    padding-left: 5px;
+}
+
+.fa-angle-down {
+    color: darkcyan;
+}
+
+/* ======== About us section ========= */
+.aboutus-style {
+    background-color: transparent;
+}
+
+.aboutus-head {
+    font-family: 'Raleway', sans-serif;
+    font-weight: inherit;
+}
+
+.about-items .faClass {
+    transition: all 1s;
+
+}
+
+.h2 {
+    font-family: 'Raleway', sans-serif !important;
+}
+
+.about-items .faClass:hover {
+    width: 100%;
+    background-color: #BBCBD2;
+    color: white;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px 2px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+
+}
+
+.fa-plus-square {
+    color: #364c7a;
+    font-size: 75px;
+    transition: all 1s;
+}
+
+.fa-edit {
+
+    color: #364c7a;
+    font-size: 75px;
+    transition: all 1s;
+}
+
+.fa-rendact {
+    color: #364c7a;
+    font-size: 75px;
+    transition: all 1s;
+}
+
+.fa-eraser {
+    color: #364c7a;
+    font-size: 75px;
+    transition: all 1s;
+}
+
+/* ======== counter section=====*/
+.count-bg {
+    background-color: transparent;
+}
+
+.featuret-header {
+    background-color: #5dcfcf;
+}
+
+.counters {
+    background-image: url("../images/Portfolio-1-1170x700.png");
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-attachment: fixed;
+    background-size: cover;
+    box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.5);
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    -o-background-size: cover;
+}
+
+.counter-overlay {
+    padding-top: 100px;
+    padding-bottom: 100px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.fa-html5 {
+    color: darkcyan;
+    font-size: 60px;
+}
+
+.fa-css3-alt {
+    color: darkcyan;
+    font-size: 60px;
+}
+
+.fa-js-square {
+    color: darkcyan;
+    font-size: 60px;
+}
+
+.fa-code {
+    color: darkcyan;
+    font-size: 60px;
+}
+
+.counter-items h2 {
+    font-family: 'Source Sans Pro', sans-serif;;
+    color: #D7DADB;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 35px;
+    margin-top: 15px;
+    margin-bottom: 1px;
+}
+
+.counter-items p {
+    font-family: 'Source Sans Pro', sans-serif;;
+    color: #D7DADB;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 20px;
+    margin-top: 0px;
+    text-transform: uppercase;
+}
+
+.count-text {
+    text-align: center;
+}
+
+.ppy {
+    display: block;
+    justify-content: center;
+}
+
+.card {
+    transition: 1s;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+/*contact us - social icons*/
+.social-icons {
+    padding-top: 50px;
+    padding-bottom: 70px;
+
+}
+
+.social-icons ul {
+
+    text-align: center;
+    padding-right: 40px;
+
+}
+
+.social-icons ul li {
+
+    display: inline;
+    list-style: none;
+    padding-left: 10px;
+
+}
+
+.social-call .contact-us {
+    background-color: transparent;
+    border-radius: 10px !important;
+    font-size: 40px;
+    transition: all 1s;
+    color: darkcyan;
+
+}
+
+/*----FOOTER----*/
+
+footer {
+    background-color: #1a1a1a;
+    padding-bottom: 35px;
+    padding-top: 35px;
+    border-bottom: 3px solid darkcyan;
+}
+
+#copy-right p {
+    font-size: 15px;
+    color: #8C8B8A;
+    text-transform: uppercase;
+
+}
+
